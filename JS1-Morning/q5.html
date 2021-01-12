@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script type="text/javascript" src="q5.js"></script> -->
+    <title>Form Validation</title>
+    <style>
+        .container {
+            border-radius: 5px;
+            width:200px;
+            background-color: #f2f2f2;
+            padding: 20px;
+            margin:20px;
+        }
+        input[type=text], select, textarea{
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-top: 10px;
+            margin-bottom: 16px;
+        }
+        #submit:hover {
+            background-color: rgb(165, 187, 230);
+        }
+    </style>
+</head>
+<body>
+    <div class="container" >
+        <form method="GET" id="form" action="/">
+            FirstName: <input type="text" id="fname" name="fname" placeholder="Enter First Name"><br>
+            LastName: <input type="text" id="lname" name="lname" placeholder="Enter Last Name">
+            Email: <input type="text" id="email" name="email" placeholder="Enter Email">
+            Gender:<br><input type="radio" id="male" name="gender" value="male">
+            <label for="male">Male</label><br>
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female">Female</label><br>
+            <label for="country">Country</label>
+            <select id="country" name="country">
+                <option value="noSelection">Please Select</option>
+                <option value="Australia">Australia</option>
+                <option value="Canada">Canada</option>
+                <option value="Usa">USA</option>
+            </select>
+            <button type="submit" id="submit">Submit</button>
+        </form>
+      </div>
+      <script>
+            const fname=document.getElementById('fname');
+            const lname=document.getElementById('lname');
+            const email =document.getElementById("email");
+            const form=document.getElementById('form');
+            const male=document.getElementById('male');
+            const female=document.getElementById('female');
+            const country=document.getElementById('country');
+            form.addEventListener("submit",(e)=>{
+                e.preventDefault();
+               if(fname.value!=""){
+                   if(lname.value!=""){
+                       if(/^[a-zA-Z0-9]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*$/.test(email.value)){
+                           if(male.checked || female.checked){
+                               if(country.value!="noSelection"){
+                                   alert("Form Submitted Successfully!! Check console for your details.");
+                                   console.log("FirstName: "+fname.value+",LastName: "+lname.value);
+                                   console.log("Email: "+email.value);
+                                   console.log("Country: "+country.value);
+                                   form.reset();
+                               }
+                               else{
+                                   alert("Please select country.");
+                               }
+                           }
+                           else{
+                               alert("Please Select Gender.");
+                           }
+                       }
+                       else{
+                           alert("Enter proper email..");
+                       }
+                   }
+                   else{
+                    alert("Last Name is required!!");
+                   }
+               }
+               else{
+                   alert("First Name is required!!");
+               }
+            });
+      </script>
+</body>
+</html>
