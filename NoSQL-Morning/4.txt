@@ -1,0 +1,7 @@
+4. Remove primary index and add a particular index:
+
+Command to drop primary index:
+drop index `couchbasedemo`.`idx_primary_cbdemo` using gsi;
+
+Command to add a new index:
+create index `idx-secondary-couchbasedemo` on `couchbasedemo`(`id`) using gsi;
