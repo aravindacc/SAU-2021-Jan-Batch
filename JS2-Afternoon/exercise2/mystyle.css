@@ -21,3 +21,10 @@ label{
 #occupation{
     display: none;
 }
+#outputData{
+    color:rgb(53, 105, 201);
+    box-sizing: border-box;
+    margin-top: 100px;
+    overflow:hidden;
+    text-align:center;
+}

@@ -1,7 +1,7 @@
 var StudentLogs={};
 class Student {
     constructor(fname, lname, email, age, rollNo, gender, department, occupation) {
-        this.fnirstName = fname;
+        this.fname = fname;
         this.lname = lname;
         this.email = email;
         this.age = age;
@@ -11,19 +11,28 @@ class Student {
         this.occupation = occupation;
     }
 }
-function formValidation(e){
-    const rollno =document.getElementById("RollNo");
+function formValidation(){
+            const fname=document.getElementById('fname');
+            const lname=document.getElementById('lname');
+            const email =document.getElementById("email");
+            const age =document.getElementById("age");
+            const rollno =document.getElementById("RollNo");
+            const male=document.getElementById('male');
+            const female=document.getElementById('female');
+            const gender=(male.value.length>0)?male.value:female.value;
+            const department=document.getElementById('department');
             const occupation=document.getElementById('occupation');
-            e.preventDefault();
             if(occupation.value.length>0){
                 alert("Form Submitted Successfully!! Student Details Added Successfully.");
                 var student = new Student(fname.value,lname.value,email.value,age.value,rollno.value,gender,department.value,occupation.value);
-                StudentLogs[rollno.value]=student;
+                // Using Object Array
+                // StudentLogs[rollno.value]=student;
+                localStorage.setItem(`student${rollno.value}`,JSON.stringify(student));
                 console.log("FirstName: "+fname.value+",LastName: "+lname.value);
                 console.log("Email: "+email.value);
                 console.log("Gender: "+gender+", Age: "+age.value);
-                console.log("Country: "+department.value+", RollNo: "+rollno.value);
-                //form.reset();
+                console.log("Department: "+department.value+", RollNo: "+rollno.value);
+                console.log(StudentLogs);
             }
 
 }
@@ -34,7 +43,6 @@ function newField(){
             const fname=document.getElementById('fname');
             const lname=document.getElementById('lname');
             const email =document.getElementById("email");
-            //const form=document.getElementById('form');
             const age =document.getElementById("age");
             const rollno =document.getElementById("RollNo");
             const male=document.getElementById('male');
@@ -92,22 +100,47 @@ function newField(){
         
 }
 
-getStudent = () => {
+// Using Object Array
+// getStudent = () => {
+//     let rollno = document.getElementById("rollno").value;
+//     let res = "";
+//     if(rollno=="") alert("Enter Rollno");
+//      else if(rollno in StudentLogs){
+   
+//       res += `First Name: ${StudentLogs[rollno].fname} <br>
+//       Last Name: ${StudentLogs[rollno].lname} <br>
+//       Gender : ${StudentLogs[rollno].gender} <br>
+//       Age : ${StudentLogs[rollno].age} <br>
+//       Department: ${StudentLogs[rollno].department}<br>
+//       Occupation: ${StudentLogs[rollno].occupation}`;
+//          console.log(StudentLogs[rollno]);  
+
+//          document.getElementById("outputData").innerHTML = res;
+//      }
+//    else {
+//     document.getElementById("outputData").innerHTML = "Student not Found";
+//    }
+
+// }
+
+// Using LocalStorage
+getStudent=()=>{
+    var res="";
     let rollno = document.getElementById("rollno").value;
     let show = "";
     if(rollno=="") alert("Enter Rollno");
-     else if(rollno in StudentLogs){
-   
-      show += `First Name: ${StudentLogs[rollno].fname} <br>
-      Last Name: ${StudentLogs[rollno].lname} <br>
-      Gender : ${StudentLogs[rollno].gender} <br>
-      Age : ${StudentLogs[rollno].age} <br>`;
-         console.log(StudentLogs[rollno]);  
-
-         document.getElementById("outputData").innerHTML = show;
-     }
-   else {
-    document.getElementById("outputData").innerHTML = "Student Rollno not Found";
-   }
-
+    if(JSON.parse(localStorage.getItem(`student${rollno}`))){
+        var student=JSON.parse(localStorage.getItem(`student${rollno}`));
+        res+=`FirstName: ${student.fname}<br>
+        LastName: ${student.lname}<br>
+        Age: ${student.age}<br>
+        Gender: ${student.gender}<br>
+        Department: ${student.department}<br>
+        Occupation: ${student.occupation}`
+        document.getElementById("outputData").innerHTML = res;
+    }
+    else {
+            document.getElementById("outputData").innerHTML = "Student not Found";
+       }
+    
 }

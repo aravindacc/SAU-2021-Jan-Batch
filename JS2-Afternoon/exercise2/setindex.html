@@ -11,7 +11,7 @@
 
 <body>
     <div id="container">
-        <form id="inputForm" action="./getindex.html">
+        <form id="inputForm">
             <!-- For Student's First Name -->
             <label for="FirstName" class="stud">First name:</label>
             <input type="text" id="fname" class="stud" name="FirstName" placeholder="Enter First Name"><br>
@@ -45,22 +45,22 @@
                 <option value="Extc">Extc</option>
             </select>
             <br>
-    
-            <button type="button" onclick="newField()" class="stud" style="display: grid;margin-left: 40%;">Submit</button>
+        </form>
+        <button type="button" onclick="newField()" class="stud" style="display: grid;margin-left: 40%;">Submit</button>
             <br>
             <input type="text" placeholder="Enter Your Occupation" id="occupation">
             <button type="button" onClick="formValidation()" style="display:none" id="addStudent">Submit all
                 details</button>
-        </form>
     </div>
     <div >
         <label>Enter Rollno Number</label>
         <input type="text" id="rollno"><br>
         <br>
-        <button onclick="getStudent()">Get Details</button>
+        <button onclick="getStudent()">Get Student Details</button>
         <br><hr>
-        <span id = "outputData" style="color:rgb(27, 114, 5);text-align:center;"></span>
-      </div>
+        <br>
+        <span id = "outputData" ></span>
+    </div>
 
 </body>
 
