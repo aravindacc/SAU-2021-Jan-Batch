@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 2</title>
+    <link rel="stylesheet" href="mystyle.css">
+    <script src="app.js"></script>
+</head>
+
+<body>
+    <div id="container">
+        <form id="inputForm" action="./getindex.html">
+            <!-- For Student's First Name -->
+            <label for="FirstName" class="stud">First name:</label>
+            <input type="text" id="fname" class="stud" name="FirstName" placeholder="Enter First Name"><br>
+            <!-- For Student's Last Name -->
+            <label for="LastName" class="stud" >Last name:</label>
+            <input type="text" id="lname" name="LastName" placeholder="Enter Last Name" class="stud"><br>
+            <!-- For Student's Email -->
+            <label for="Email" class="stud">Enter Email :</label>
+            <input type="text" id="email" name="Email" placeholder="Enter Email" class="stud"><br>
+            <!-- For Student's Age -->
+            <label for="Age" class="stud">Enter Age :</label>
+            <input type="number" id="age" name="Age" placeholder="Enter Your Age" class="stud"><br>
+             <!-- For Student's RollNo -->
+             <label for="RollNo" class="stud">Enter Roll No:</label>
+             <input type="number" id="RollNo" name="RollNo" class="stud" placeholder="Enter RollNo"><br>
+            <!-- For Student's Gender -->
+            <label for="Gender" class="stud">Enter Gender:</label>
+            <input type="radio" name="Gender" value="Male" id="male" class="stud">
+            <label for="Male">Male</label>
+            <input type="radio" name="Gender" value="Female" id="female" class="stud">
+            <label for="Female">Female</label>
+            <br>
+            <!-- For Student's Department -->
+            <label for="department" class="stud">Choose your department:</label>
+            <select id="department" class="stud">
+                <option value="noSelection">Please Select</option>
+                <option value="Comps">Comps</option>
+                <option value="It">It</option>
+                <option value="Chemical">Chemical</option>
+                <option value="Mechnical">Mechnical</option>
+                <option value="Extc">Extc</option>
+            </select>
+            <br>
+    
+            <button type="button" onclick="newField()" class="stud" style="display: grid;margin-left: 40%;">Submit</button>
+            <br>
+            <input type="text" placeholder="Enter Your Occupation" id="occupation">
+            <button type="button" onClick="formValidation()" style="display:none" id="addStudent">Submit all
+                details</button>
+        </form>
+    </div>
+    <div >
+        <label>Enter Rollno Number</label>
+        <input type="text" id="rollno"><br>
+        <br>
+        <button onclick="getStudent()">Get Details</button>
+        <br><hr>
+        <span id = "outputData" style="color:rgb(27, 114, 5);text-align:center;"></span>
+      </div>
+
+</body>
+
+</html>

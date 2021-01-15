@@ -1,0 +1,23 @@
+#container{
+    box-sizing: border-box;
+    margin: 20px;
+    padding: 15px;
+    border: 2px solid rgb(93, 218, 166);
+    max-width: 400px;
+    overflow:hidden;
+    min-height: 400px;
+    width: 60%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+label{
+    padding-right:10px;
+}
+.stud{
+    margin-top: 20px;
+}
+#occupation{
+    display: none;
+}
