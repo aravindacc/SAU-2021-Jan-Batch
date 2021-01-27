@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING/DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans> <!-- global- default-init-method="onInit" default-destroy-method="onCleanup" -->
+  
+  <bean id="player" class="com.au.spring.Player" init-method="onInit" destroy-method="onCleanup">  
+    <!--<property name="PointA" ref="PointA"/>
+    <property name="PointB" ref="PointB"/>
+    <property name="PointC" ref="PointC"/>-->
+  </bean>
+  
+  <!-- Use of .properties file  -->
+  <bean id="Game1" class="com.au.spring.Game">
+     <property name="id" value="${Game1.id}"/>
+     <property name="name" value="${Game1.name}"/>
+     <property name="publishedYear" value="${Game1.publishedYear}"/>
+  </bean>
+ 
+  
+  <bean id="Game2" class="com.au.spring.Game">
+       <property name="id" value="${Game2.id}"/>
+       <property name="name" value="${Game2.name}"/>
+       <property name="publishedYear" value="${Game2.publishedYear}"/>
+  </bean>
+  
+  <bean id="Game3" class="com.au.spring.Game">
+        <property name="id" value="${Game3.id}"/>
+        <property name="name" value="${Game3.name}"/>
+        <property name="publishedYear" value="${Game3.publishedYear}"/>
+  </bean>
+  
+  <!-- Own class which implements BeanFactoryPostProcessor -->
+  <bean class="com.au.spring.MyBeanFactoryPP"> </bean>
+  
+  <!-- Externalize properties -->
+  <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+     <property name="locations" value="pointsConfig.properties">
+     </property>
+  </bean>
+  
+  <!-- @Autowired annotation is a postprocessor -->
+  <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"></bean>
+  
+</beans>
