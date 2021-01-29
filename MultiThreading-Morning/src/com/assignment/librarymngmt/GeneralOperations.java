@@ -30,6 +30,7 @@ public class GeneralOperations {
 		try {
 			inTime(student);
 			if(!student.notAddedCart(book)) {
+				book.startTimer();
 				for(int i = 0 ; i < listOfBooks.size() ; i++ ) {
 					if(listOfBooks.get(i).getId() == book.getId() && listOfBooks.get(i).getISBN() == book.getISBN() && !listOfBooks.get(i).getIsInReview() && !listOfBooks.get(i).getIsInCart()) {
 						listOfBooks.get(i).setIsInCart(true);
@@ -92,7 +93,7 @@ public class GeneralOperations {
 	
 	public void inTime(Student student) {
 		for(Book book:listOfBooks) {
-			if (book.checkTimerEnds(System.currentTimeMillis())) {
+			if (!book.getIsInReview() && !book.getIsInCart() && book.checkTimerEnds(System.currentTimeMillis())) {
 				book.setIsInCart(false);
 				book.setIsInReview(false);
 				book.resetTimer();
