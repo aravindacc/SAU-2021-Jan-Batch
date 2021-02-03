@@ -1,0 +1,1 @@
+package com.realTimeApp.Dictionary.queries;
