@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.assignment.libraryMgnmtApp.LibraryBooks" table="LIBRARY_BOOKS">
+		<id name="bookId" type="int" column="bookId">
+			<generator class="native" />
+		</id>
+		<property name="Name" column="Name" type="string" />
+		<property name="Writer" column="Writer" type="string" />
+		<property name="Type" column="Type" type="string" />
+		<property name="Language" column="Language" type="string" />
+		<property name="Published" column="Published" type="int" />
+	
+	</class>
+</hibernate-mapping>

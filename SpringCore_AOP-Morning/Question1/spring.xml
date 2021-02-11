@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING/DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+	<bean id="player" class="com.au.spring.Player">
+		<property name="games">
+			<set>
+				<ref bean="Game1" />
+				<ref bean="Game2" />
+				<ref bean="Game3" />
+			</set>
+		</property>
+		<property name="gameAndLaunch">
+			<map>
+				<entry key="1997" value-ref="Game1" />
+				<entry key="2001" value-ref="Game2" />
+				<entry key="2009" value-ref="Game3" />
+			</map>
+		</property>
+		<!--<property name="PointA" ref="PointA"/> <property name="PointB" ref="PointB"/> 
+			<property name="PointC" ref="PointC"/> -->
+	</bean>
+
+	<bean id="Game1" class="com.au.spring.Game">
+		<property name="id" value="0" />
+		<property name="name" value="WWE" />
+	</bean>
+
+	<bean id="Game2" class="com.au.spring.Game">
+		<property name="id" value="1" />
+		<property name="name" value="Road Rash" />
+	</bean>
+	<bean id="Game3" class="com.au.spring.Game">
+		<property name="id" value="2" />
+		<property name="name" value="GTA-V" />
+	</bean>
+</beans>
